@@ -8,8 +8,7 @@ Often, it is important to find the optimal solution when pairing up items from t
 ## Making it simple
 The Hungarian algorithm makes this all possible in O(n<sup>3</sup>) time. However, it can be difficult to create the matrix necessary to execute this algorithm, especially when the two lists are not equivilant in length. This package is meant to make finding optimal combinations using the hungarian algorithm dead simple. No matrices, no mess- just pass in the two lists and the function to score pairs, and you're done.
 
-## Code
-### 'But I already have the scores!'
+## 'But I already have the scores!'
 If you already have scores, no worries! Just format your scores like so (making sure you don't miss an entry) and you can pass in a lambda to access the scores, as well as the scores themselves, as demonstrated below.
 ```python
 from HungarianScorer.HungarianScorer import HungarianScorer
@@ -40,7 +39,7 @@ result = HungarianScorer.getBestCombo(players, events, accessScore, scores)
 ```
 Note: Jordan is still an amazing athlete. It is advised to take into account risk and standard deviation into your scores, as Jordan may in fact be the better choice for his consistency.
 
-### Passing in functions that take only two arguments
+## Passing in functions that take only two arguments
 Such simple functions are the easiest to implement. All you need provide are the lists and the function.
 ```python
 from HungarianScorer.HungarianScorer import HungarianScorer
@@ -54,7 +53,7 @@ bestCombo = HungarianScorer.getBestCombo(listA, listB, fuzz.ratio)
 ```
 
 
-### Using more complex functions
+## Using more complex functions
 Sometimes you will need to pass in more complex functions, that take more than just the two list item variables. All you have to do is make sure your function has itemA as its first argument, itemB as its second argument, and any other objects you need to use can be appended on at the end, as seen below.
 ```python
 from HungarianScorer.HungarianScorer import HungarianScorer
@@ -70,7 +69,7 @@ bestCombo = HungarianScorer.getBestCombo(listA, listB, exampleScoringFunc, 'j')
 # [('j', 'jon', 99.0), ('john', 'steve', 100.0), ('weymouth', 'waymouth', 100.0)]
 ```
 
-### Indices
+## Indices
 Sometimes it is meaningful to know the indices of the items in each pair. This is especially useful when some of the objects in one of the lists are identical. Here is the code to do that:
 ```python
 from HungarianScorer.HungarianScorer import HungarianScorer
@@ -86,7 +85,7 @@ bestComboIndices = HungarianScorer.getBestComboAsIndices(listA, listB, fuzz.rati
 # [(0, 1, 86.0), (1, 2, 55.0), (2, 3, 88.0)]
 ```
 
-### Note
+## Note
 Remember that the two lists do not have to be items of the same type. For example, listA could be made of strings, while listB could be made of custom objects. All you need is a function that can return a float when comparing the two different objects.
 
 Enjoy!
