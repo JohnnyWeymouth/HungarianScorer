@@ -58,13 +58,12 @@ Sometimes you will need to pass in more complex functions, that take more than j
 ```python
 from HungarianScorer.HungarianScorer import HungarianScorer
 
-listA = ['j', 'john', 'weymouth']
-listB = ['steve', 'jon', 'jamison', 'waymouth']
 def exampleScoringFunc(itemA:str, itemB:str, wildCardLetter) -> float:
     score = 100 - abs(len(itemA) - len(itemB))
     score += itemA.count(wildCardLetter)
     return score
-
+listA = ['j', 'john', 'weymouth']
+listB = ['steve', 'jon', 'jamison', 'waymouth']
 bestCombo = HungarianScorer.getBestCombo(listA, listB, exampleScoringFunc, 'j')
 # [('j', 'jon', 99.0), ('john', 'steve', 100.0), ('weymouth', 'waymouth', 100.0)]
 ```
